@@ -38,13 +38,18 @@ def remove_dups(head: Node):
 
 def print_linked_list(head:Node):
     n: Node = head
+    temp_list = []
 
     if n.data == None:
         print("None")
+        return
 
     while n != None:
-        print(n.data)
+        temp_list.append(str(n.data))
         n = n.next
+    
+    temp_list.append(str(None))
+    print(" -> ".join(temp_list))
 
 n0 = Node(0)
 n1 = Node(1)
@@ -58,6 +63,6 @@ n4.next = n3
 n5 = Node(4)
 n5.next = n4
 
-print(print_linked_list(n5))
+print_linked_list(n5)
 n5 = remove_dups(n5)
-print(print_linked_list(n5))
+print_linked_list(n5)
